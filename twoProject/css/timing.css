@@ -1,0 +1,798 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+a {
+    /* 
+        此属性只作用于IOS
+        点击一个链接或通过Js定义的可点击元素时，会出现半透明的灰色背景
+        重设这个属性，可以设置为任何颜色
+    */
+    -webkit-tap-heighlight-color: rgba(0, 0, 0, 0);
+}
+/* 伪类样式来清除浮动 
+   after伪类里面是一个inline(内联标签)，它不会受到clear的影响，clear属性只会操作块级元素，
+   因此，将其转换为块元素，再清除浮动
+*/
+.clearFix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/* 触发IE浏览器的haslayout，解决ie下的浮动，margin叠加问题 */
+.clearFix {
+    zoom: 1;
+}
+
+a.gaLink {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+
+/* 适应宽度 */
+@media screen and (min-width: 651px) {
+    /* 整体设置 */
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        list-style: none;
+        text-decoration: none;
+        font-family: PingFangSC-Regular, "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei",
+            "微软雅黑", STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+        color: #333;
+        font-style: normal;
+    }
+    /* 头部设置 */
+    .header {
+        position: relative;
+    }
+
+    .header .content {
+        width: 1000px;
+        margin: 0 auto;
+        height: 810px;
+        position: relative;
+    }
+
+    .bg_img {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+
+    .bg_img img {
+        width: 100%;
+        display: block;
+    }
+
+    .content a {
+        float: left;
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin-top: 22.5px;
+        margin-right: 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .content a img {
+        width: 100%;
+        display: block;
+    }
+
+    .header_bottom {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+        top: 494px;
+        height: 30px;
+        padding-left: 25px;
+    }
+
+    .header_bottom a {
+        display: inline-block;
+        margin: 0 20px;
+        width: 100px;
+    }
+
+    .header_bottom a img {
+        width: 100%;
+        display: block;
+    }
+
+    /* 填充 */
+    .bg_color {
+        background-color: #5094f3;
+        height: 559px;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        z-index: 1;
+    }
+
+    /* 手动轮播设置 */
+    .system .content {
+        width: 1000px;
+        margin: 0 auto;
+        padding: 0 0 50px 0;
+    }
+
+    .system .content ul {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .system .content ul li {
+        width: 270px;
+        height: 420px;
+        position: relative;
+        padding: 50px 30px 100px 30px;
+        float: left;
+        transition: all 0.3s linear;
+        overflow: hidden;
+    }
+
+    .line {
+        width: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 570px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .line_top {
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+        width: 330px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .system .content ul li:hover {
+        border: 0;
+        box-shadow: 0 1px 10px #7ebeec;
+    }
+
+    .system .content ul li:last-child {
+        border-right: 0;
+    }
+
+    img.top {
+        width: 300px;
+        height: 183px;
+        position: absolute;
+        left: 50%;
+        margin-left: -150px;
+        top: 50px;
+    }
+
+    .intr {
+        height: 130px;
+        position: absolute;
+        left: 0;
+        top: 300px;
+        width: 270px;
+        padding: 0 30px;
+    }
+
+    .intr h2 {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .intr p {
+        font-size: 14px;
+        color: #333;
+    }
+
+    img.hidden_slide {
+        width: 300px;
+        height: 400px;
+        position: absolute;
+        bottom: -410px;
+        left: 50%;
+        margin-left: -150px;
+    }
+
+    /* 在线学习人数样式 */
+    .number {
+        width: 100%;
+        background-color: #5094f3;
+        padding: 1rem 0;
+    }
+
+    .number .content {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .number .content p {
+        font-size: 0.8rem;
+        color: #fff;
+        letter-spacing: 2px;
+    }
+
+    .number .content p b {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .number .content p span {
+        font-size: 40px;
+        color: #fff;
+        letter-spacing: 2px;
+        font-family: Arial, sans-serif !important;
+    }
+
+    /* 正在学习样式 */
+
+    .studying {
+        width: 100%;
+    }
+
+    .studying .content {
+        width: 1000px;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .studying_title {
+        float: left;
+        padding: 100px 50px 0 50px;
+        position: relative;
+        width: 400px;
+    }
+
+    img.mark {
+        position: absolute;
+        left: 0;
+        top: 60px;
+        width: 35px;
+    }
+
+    .studying_title h1 {
+        font-size: 30px;
+        color: #333;
+        font-weight: normal;
+    }
+
+    .studying_title p {
+        font-size: 14px;
+        color: #333;
+        margin-top: 50px;
+    }
+
+    /* swiper */
+    .studying .userList {
+        padding: 0 50px 0 50px;
+        width: 400px;
+        float: left;
+        height: 240px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 80px;
+    }
+
+    .userList .swiper-slide {
+        float: left;
+        width: 400px;
+    }
+
+    img.user_avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .user_info {
+        float: left;
+        width: 340px;
+    }
+
+    p.user_name {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 14px;
+        margin-top: 3px;
+    }
+
+    p.user_state {
+        color: #333;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+
+    /* 下载地址样式 */
+    .downLoad {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+    img#bottomBG {
+        position: absolute;
+    }
+    .downLoad .content {
+        width: 1000px;
+        margin: 0 auto;
+        position: relative;
+        height: 400px;
+    }
+    .downLoad .content h1 {
+        font-size: 40px;
+        font-weight: normal;
+        text-align: center;
+        position: relative;
+        color: #fff;
+        padding-top: 50px;
+    }
+    .downLoad .content h1 img.arrow {
+        position: absolute;
+        width: 25px;
+        top: 130px;
+        left: 50%;
+        margin-left: -12.5px;
+    }
+    img.phone_img {
+        position: absolute;
+        left: -60px;
+        bottom: 0;
+    }
+    .downLoadArea {
+        width: 500px;
+        position: absolute;
+        right: 300px;
+        bottom: 30px;
+    }
+    .downLoadDetail {
+        float: right;
+        width: 330px;
+    }
+    img.downLoadLogo {
+        width: 200px;
+    }
+    .btns {
+        width: 330px;
+    }
+    a.pcBtn {
+        display: block;
+    }
+    a.phoneBtn {
+        display: none !important;
+    }
+    .btns a {
+        float: left;
+        display: block;
+        width: 150px;
+        margin: 0;
+    }
+    .btns a.pcBtn:last-child {
+        float: right;
+    }
+    .btns a img {
+        width: 100%;
+    }
+    img.code {
+        float: right;
+        margin-right: 20px;
+        width: 110px;
+        margin-top: 43px;
+    }
+
+    /* 底部 */
+    .footer {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .footer .content {
+        width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .footer .content a {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        margin: 0 10px;
+        float: none;
+    }
+
+    .footer .content a img {
+        width: 100%;
+        display: block;
+    }
+
+    .footer .content p {
+        font-size: 14px;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    .pc_info {
+        display: block !important;
+    }
+
+    .phone_info {
+        display: none !important;
+    }
+
+    .phone_downLoad {
+        display: none;
+    }
+
+    .footer .content p {
+        font-size: 12px;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    a.gaLink span {
+        font-size: 12px;
+    }
+
+    .footer .content a.gaLink img.ga {
+        display: inline-block;
+        vertical-align: sub;
+        padding-right: 5px;
+        width: 14px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    /* 整体 */
+    * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        list-style: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-family: PingFangSC-Regular, "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei",
+            "微软雅黑", STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        word-wrap: break-word;
+        color: #333;
+        font-style: normal;
+    }
+    /* 头部 */
+    .header {
+        position: relative;
+    }
+    .bg_img {
+        display: none;
+    }
+    img.header_logo {
+        display: none;
+    }
+    .content a {
+        display: none;
+    }
+    .header_bottom {
+        display: none;
+    }
+    .header img.arrow {
+        display: block;
+        width: 1rem;
+        position: absolute;
+        left: 50%;
+        margin-left: -0.5rem;
+        bottom: 0.5rem;
+        -webkit-animation: arrow_up 1.5s infinite ease-in-out;
+    }
+    /* 浏览器兼容 */
+    @-webkit-keyframes arrow_up {
+        0%,
+        30% {
+            opacity: 0;
+            bottom: 0.5rem;
+        }
+        60% {
+            opacity: 1;
+            bottom: 0;
+        }
+        100% {
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    /* swiper轮播 */
+    .system .content {
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+    .system .content h1 {
+        font-size: 1.2rem;
+        font-weight: normal;
+        color: #333;
+    }
+    .system .content p {
+        font-size: 0.75rem;
+        color: #333;
+        margin-top: 10px;
+    }
+    .system .content ul {
+        display: none;
+    }
+    .systemInfo {
+        display: block;
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .system .content p {
+        font-size: 0.75rem;
+        color: #333;
+        margin-top: 10px;
+    }
+    .systemInfo .swiper-slide {
+        text-align: center;
+    }
+    .intr {
+        height: 7rem;
+        width: 100%;
+        padding: 0 2rem;
+    }
+    .intr h2 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .intr p {
+        font-size: 0.75rem;
+        color: #333;
+    }
+    img.hidden_slide {
+        width: 60%;
+        display: inline-block;
+        margin: 0 auto;
+    }
+    /* 在线学习人数 */
+    .number {
+        width: 100%;
+        background-color: #5094f3;
+        padding: 1rem 0;
+    }
+    .number .content {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .number .content p {
+        font-size: 0.8rem;
+        color: #fff;
+        letter-spacing: 2px;
+    }
+    .number .content p b {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 1rem;
+        color: #fff;
+    }
+    .number .content p span {
+        font-size: 2rem;
+        color: #fff;
+        letter-spacing: 2px;
+        font-family: Arial, sans-serif !important;
+    }
+    /* 正在学习 */
+    .studying {
+        width: 100%;
+    }
+    .studying .content {
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 2rem;
+    }
+    .studying_title {
+        padding: 2rem 1rem;
+        position: relative;
+        width: 100%;
+    }
+    .studying_title h1 {
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: normal;
+    }
+    .studying_title p {
+        margin-top: 1rem;
+    }
+    img.mark {
+        display: none;
+    }
+    .studying .userList {
+        padding: 0 1rem;
+        width: 100%;
+        float: left;
+        height: 240px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+    .userList .swiper-slide {
+        float: left;
+        width: 100%;
+    }
+    img.user_avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        float: left;
+        margin-right: 0.5rem;
+    }
+    .user_info {
+        float: left;
+        width: 15rem;
+    }
+    p.user_name {
+        color: rgba(0, 0, 0, 0.5);
+        margin-top: 0.1rem;
+    }
+    p.user_state {
+        margin-top: 0.1rem;
+    }
+    /* 下载 */
+    .downLoad {
+        width: 100%;
+        height: 16.66rem;
+        position: relative;
+        overflow: hidden;
+    }
+    img#bottomBG {
+        position: absolute;
+    }
+    .downLoad .content {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        height: 16.66rem;
+    }
+    .downLoad .content h1 {
+        font-size: 1.5rem;
+        font-weight: normal;
+        text-align: center;
+        position: relative;
+        color: #fff;
+        padding-top: 2rem;
+    }
+    .downLoad .content h1 img.arrow {
+        position: absolute;
+        width: 1rem;
+        top: 6rem;
+        left: 50%;
+        margin-left: -0.5rem;
+    }
+    img.phone_img {
+        display: none;
+    }
+    .downLoadArea {
+        width: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 1rem;
+    }
+    .downLoadDetail {
+        width: 100%;
+        text-align: center;
+    }
+    img.downLoadLogo {
+        width: 60%;
+        margin-bottom: 0.5rem;
+    }
+    .btns {
+        width: 100%;
+    }
+
+    .btns a {
+        display: inline-block;
+        width: 8rem;
+        margin: 0 1rem;
+    }
+    a.pcBtn {
+        display: none;
+    }
+    a.phoneBtn {
+        display: inline-block;
+        width: 7rem;
+        border: 2px solid #fff;
+        color: #fff;
+        text-align: center;
+        padding: 0.3rem 0;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+    }
+    .btns a:last-child {
+        float: none;
+    }
+    .btns a img {
+        width: 100%;
+    }
+    img.code {
+        display: none;
+    }
+    /* footer */
+    .footer {
+        width: 100%;
+        padding: 1rem 0;
+    }
+    .footer .content {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .footer .content a {
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-block;
+        margin: 0 0.5rem;
+        float: none;
+    }
+    .footer .content a img {
+        width: 100%;
+        display: block;
+    }
+    .footer .content p {
+        margin-top: 1rem;
+        font-size: 0.7rem;
+    }
+    .pc_info {
+        display: none !important;
+    }
+    .phone_info {
+        display: block !important;
+    }
+    .systemInfo .swiper-pagination {
+        bottom: -1rem;
+    }
+    .phone_downLoad {
+        width: 100%;
+        background-color: #009df5;
+        padding: 1rem;
+        text-align: center;
+    }
+    .phone_downLoad p {
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 0.5rem;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+    }
+    .footer .content p {
+        margin-top: 1rem;
+        font-size: 0.7rem;
+      }
+      a.gaLink span {
+        font-size: 0.7rem;
+      }
+      .footer .content a.gaLink img.ga{
+        display: inline-block;
+        vertical-align: sub;
+        padding-right: 5px;
+        width: 1.1rem;
+      }
+}
